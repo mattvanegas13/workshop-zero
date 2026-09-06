@@ -52,5 +52,24 @@ A contiguous range is the difference between two cumulative prefixes, similar to
 Time: O(n)  
 Space: O(n)
 
-**Revisit:**  
-[leave blank]
+## 3. Search in rotated array
+
+**Pattern** Binary Search
+
+** Initial instinct **
+considering we have a time complexity constraint of O(log n) that gives us the idea of that we need to do a binary search. The problem is that the rotated twist violates the monotomically increasing constraint that usually is there for a binary search. So what do we do here..? Well if we rotate the array key theres a porition that has to be sorted still - which actuall is the pivot point. Thus we need to find out which portion is still sorted. So we check the left side of the pivot - we know that the left is sorted if nums[left] <= nums[mid] otherwise the right side is the sorted. if the left half is sorted then we need to do a binary search on the left side. then if the left is sorted we check to see if the target is in that left sub array otherwise look at the left part. THen we address the mirror scenario where the right side is the sorted portion and then we check if the tartget is in that part
+
+if youre confuse walk through this example
+[2,4,5,6,7,0,1]
+find 1 
+
+
+** Key Invariant **
+one potion of the array has to be sorted
+
+** Complexity **
+Time: O(log n)
+Complexity O(log n) 
+
+why not O(1)? because our recursive structure causes us to maintain a stack of recursive funcition calls
+had we had a while loop then it would go to O(1)
